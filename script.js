@@ -1,8 +1,14 @@
-const botao = document.querySelector('.botao')
+const imagens = document.querySelectorAll('#galeria li img')
 
-function mostrar(){
-  const texto = document.querySelector('.texto')
-  texto.classList.toggle('ativar')
+function galeriaTrocar(event){
+  const principal = document.querySelector('#imagem-principal')
+  const clicada = event.currentTarget
+  principal.src = clicada.src
+  principal.alt = clicada.alt
 }
 
-botao.addEventListener('click', mostrar)
+function galeriaClique(imagem){
+  imagem.addEventListener('click', galeriaTrocar)
+}
+
+imagens.forEach(galeriaClique)
